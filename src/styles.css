@@ -29,7 +29,7 @@ body {
   margin: 0 auto;
 }
 
-/*CARD*/
+/* CARD */
 .card {
   display: flex;
   flex-direction: row;
@@ -37,6 +37,7 @@ body {
   background-color: #fff;
 }
 
+/* Imagen del card */
 .card__container-image {
   flex-basis: 40%;
   display: flex;
@@ -48,7 +49,10 @@ body {
   border-radius: 1rem 0 0 1rem;
 }
 
+
+/* Contenido del card */
 .card__container-content {
+  position: relative;
   flex-basis: 60%;
   padding: 2rem;
 }
@@ -78,8 +82,8 @@ body {
 }
 
 .container__author-image {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   margin-right: 1rem;
 }
@@ -90,7 +94,7 @@ body {
 }
 
 .author__name {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-primary);
   margin-bottom: 0.2rem;
 }
@@ -108,9 +112,11 @@ body {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  z-index: 100;
 }
 
-.button__icon {
+.button__icon,
+.button__icon:active {
   color: var(--color-secondary);
 }
 
@@ -119,6 +125,50 @@ body {
 }
 
 .button__share:hover .button__icon {
+  color: #fff;
+}
+
+/* Share */
+.container__share {
+  position: absolute;
+  bottom: 100px;
+  right: -65px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primary);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-primary);
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.container__share::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 45%;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--color-primary);
+  opacity: 1;
+}
+
+.share {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: var(--color-terciary);
+}
+
+.share__icon {
+  font-size: 1.3rem;
   color: #fff;
 }
 
@@ -131,6 +181,7 @@ body {
   .main {
     width: 95%;
   }
+
 }
 
 @media (max-width:570px) {
@@ -143,8 +194,30 @@ body {
     flex-direction: column;
   }
 
+  .card__container-content {
+    padding-bottom: 1rem;
+  }
+
   .card__container-image,
   .card__image {
     border-radius: 1rem 1rem 0 0;
+  }
+
+  .card__description {
+    margin-bottom: 1.5rem;
+  }
+
+  .container__share {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: flex-start;
+    border-radius: 0 0 1rem 1rem;
+    padding: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .container__share::after {
+    opacity: 0;
   }
 }

@@ -29,9 +29,17 @@
           </div>
         </div>
 
-        <button type="button" class="button__share">
+        <!--Boton de share-->
+        <button type="button" class="button__share" (click)="toggleClass()">
           <i class="fa-solid fa-share button__icon"></i>
         </button>
+
+        <div class="container__share" [ngClass]="{'visible': isClassApplied}">
+          <span class="share">Share</span>
+          <a href="#"><i class="fa-brands fa-square-facebook share__icon"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter share__icon"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest share__icon"></i></a>
+        </div>
       </div>
     </div>
   </div>
